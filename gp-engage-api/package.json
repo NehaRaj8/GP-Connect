@@ -1,0 +1,32 @@
+{
+  "name": "gp-engage-api",
+  "version": "1.0.0",
+  "description": "GP Engage Platform - Node.js API layer",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "redis": "^4.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcrypt": "^5.1.1",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.3.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.14",
+    "twilio": "^5.2.2",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8",
+    "winston": "^3.13.0",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
