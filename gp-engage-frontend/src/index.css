@@ -1,0 +1,185 @@
+/* ============================================================
+   GP Connect Staff Portal — Design System
+   NHS Blue anchored palette, clinical clarity, zero decoration
+   ============================================================ */
+
+:root {
+  /* Core palette */
+  --nhs-blue:        #005EB8;
+  --nhs-blue-dark:   #003D7C;
+  --nhs-blue-light:  #E8F0FB;
+  --nhs-green:       #007F3B;
+  --nhs-green-light: #E8F5EE;
+  --nhs-red:         #DA291C;
+  --nhs-red-light:   #FDECEA;
+  --nhs-amber:       #FFB81C;
+  --nhs-amber-light: #FFF8E6;
+
+  /* Neutrals */
+  --grey-50:  #F8F9FA;
+  --grey-100: #F1F3F5;
+  --grey-200: #E9ECEF;
+  --grey-300: #DEE2E6;
+  --grey-400: #CED4DA;
+  --grey-500: #ADB5BD;
+  --grey-600: #6C757D;
+  --grey-700: #495057;
+  --grey-800: #343A40;
+  --grey-900: #212529;
+
+  /* Semantic */
+  --bg:          #F4F6F9;
+  --surface:     #FFFFFF;
+  --border:      #DEE2E6;
+  --text:        #212529;
+  --text-muted:  #6C757D;
+  --text-light:  #ADB5BD;
+
+  /* Severity colours */
+  --emergency:   #DA291C;
+  --urgent:      #FFB81C;
+  --routine:     #007F3B;
+
+  /* Typography */
+  --font-body:  'Inter', -apple-system, sans-serif;
+  --font-mono:  'IBM Plex Mono', monospace;
+
+  /* Spacing */
+  --radius-sm:  4px;
+  --radius:     8px;
+  --radius-lg:  12px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow:     0 2px 8px rgba(0,0,0,0.10);
+  --shadow-lg:  0 4px 20px rgba(0,0,0,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ── Utility classes ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.badge-emergency { background: var(--nhs-red-light);   color: var(--nhs-red); }
+.badge-urgent    { background: var(--nhs-amber-light);  color: #7A5500; }
+.badge-routine   { background: var(--nhs-green-light);  color: var(--nhs-green); }
+.badge-pending   { background: var(--grey-100); color: var(--grey-700); }
+.badge-resolved  { background: var(--nhs-green-light); color: var(--nhs-green); }
+.badge-alert     { background: var(--nhs-red-light); color: var(--nhs-red); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--nhs-blue);
+  color: white;
+}
+.btn-primary:hover { background: var(--nhs-blue-dark); }
+
+.btn-secondary {
+  background: white;
+  color: var(--nhs-blue);
+  border: 1px solid var(--nhs-blue);
+}
+.btn-secondary:hover { background: var(--nhs-blue-light); }
+
+.btn-danger {
+  background: var(--nhs-red-light);
+  color: var(--nhs-red);
+  border: 1px solid var(--nhs-red);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--grey-700);
+}
+.btn-ghost:hover { background: var(--grey-100); }
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Form elements ── */
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: white;
+  color: var(--text);
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--nhs-blue);
+  box-shadow: 0 0 0 3px rgba(0, 94, 184, 0.12);
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--grey-700);
+  margin-bottom: 4px;
+}
+
+/* ── Alert strip ── */
+.alert-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+}
+.alert-strip-error   { background: var(--nhs-red-light);   color: var(--nhs-red); }
+.alert-strip-warning { background: var(--nhs-amber-light);  color: #7A5500; }
+.alert-strip-success { background: var(--nhs-green-light);  color: var(--nhs-green); }
+.alert-strip-info    { background: var(--nhs-blue-light);   color: var(--nhs-blue-dark); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--grey-300); border-radius: 3px; }

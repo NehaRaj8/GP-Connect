@@ -1,0 +1,17 @@
+# Ignore folders you don't want on GitHub
+docs/
+venv/
+
+# Ignore zip files
+*.zip
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore environment files
+.env
+
+# Ignore Node modules (in case you add more later)
+node_modules/
+
+package-lock.json
