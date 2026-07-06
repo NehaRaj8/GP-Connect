@@ -1,0 +1,169 @@
+/* ============================================================
+   GP Patient Portal — Design System
+   Warm, accessible, patient-friendly. NHS anchored but softer.
+   ============================================================ */
+
+:root {
+  --nhs-blue:        #005EB8;
+  --nhs-blue-dark:   #003D7C;
+  --nhs-blue-light:  #E8F0FB;
+  --nhs-green:       #007F3B;
+  --nhs-green-light: #E8F5EE;
+  --nhs-red:         #DA291C;
+  --nhs-red-light:   #FDECEA;
+  --nhs-warm:        #F4F6F9;
+
+  --grey-100: #F1F3F5;
+  --grey-200: #E9ECEF;
+  --grey-300: #DEE2E6;
+  --grey-500: #ADB5BD;
+  --grey-600: #6C757D;
+  --grey-700: #495057;
+  --grey-900: #212529;
+
+  --bg:         #F4F6F9;
+  --surface:    #FFFFFF;
+  --border:     #DEE2E6;
+  --text:       #212529;
+  --text-muted: #6C757D;
+
+  --font: 'Inter', -apple-system, sans-serif;
+  --radius-sm: 6px;
+  --radius:    12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+  --shadow:    0 2px 12px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  text-decoration: none;
+  font-family: var(--font);
+}
+.btn-primary   { background: var(--nhs-blue); color: white; }
+.btn-primary:hover { background: var(--nhs-blue-dark); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-secondary { background: white; color: var(--nhs-blue); border: 2px solid var(--nhs-blue); }
+.btn-secondary:hover { background: var(--nhs-blue-light); }
+.btn-ghost     { background: transparent; color: var(--grey-700); }
+.btn-ghost:hover { background: var(--grey-100); }
+.btn-success   { background: var(--nhs-green); color: white; }
+.btn:disabled  { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-lg        { padding: 14px 32px; font-size: 16px; border-radius: var(--radius-sm); }
+.btn-full      { width: 100%; }
+
+/* Form elements */
+input, textarea, select {
+  font-family: var(--font);
+  font-size: 15px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: white;
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--nhs-blue);
+  box-shadow: 0 0 0 4px rgba(0,94,184,0.10);
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey-700);
+  margin-bottom: 6px;
+}
+
+/* Alerts */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.alert-error   { background: var(--nhs-red-light);   color: #8B0000; border-left: 4px solid var(--nhs-red); }
+.alert-success { background: var(--nhs-green-light); color: #004d1f; border-left: 4px solid var(--nhs-green); }
+.alert-info    { background: var(--nhs-blue-light);  color: var(--nhs-blue-dark); border-left: 4px solid var(--nhs-blue); }
+.alert-warning { background: #FFF8E6; color: #7A5500; border-left: 4px solid #FFB81C; }
+
+/* Status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.badge-pending    { background: var(--grey-100);        color: var(--grey-700); }
+.badge-triaged    { background: var(--nhs-blue-light);  color: var(--nhs-blue-dark); }
+.badge-in_progress { background: #FFF8E6;               color: #7A5500; }
+.badge-resolved   { background: var(--nhs-green-light); color: var(--nhs-green); }
+.badge-cancelled  { background: var(--grey-100);        color: var(--grey-600); }
+.badge-routine    { background: var(--nhs-green-light); color: var(--nhs-green); }
+.badge-urgent     { background: #FFF8E6;                color: #7A5500; }
+.badge-emergency  { background: var(--nhs-red-light);   color: var(--nhs-red); }
+
+/* Progress steps */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.step-circle {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.step-circle-done    { background: var(--nhs-green); color: white; }
+.step-circle-active  { background: var(--nhs-blue);  color: white; }
+.step-circle-pending { background: var(--grey-200);  color: var(--grey-500); }
+.step-label { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+.step-label-active { color: var(--nhs-blue); font-weight: 600; }
+.step-line { flex: 1; height: 2px; background: var(--grey-200); margin: 0 8px; }
+.step-line-done { background: var(--nhs-green); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--grey-300); border-radius: 3px; }
