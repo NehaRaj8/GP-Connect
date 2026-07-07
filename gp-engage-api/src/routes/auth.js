@@ -213,6 +213,8 @@ router.post('/patient/register', async (req, res) => {
   )
 
   const patient = rows[0]
+
+  console.log('Patient practice_id:', patient.practice_id)
   const { token, jti } = generatePatientToken(patient)
 
   // Store session

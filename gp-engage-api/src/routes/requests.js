@@ -29,6 +29,13 @@ const router = Router()
 // All routes require authentication
 router.use(authenticate)
 
+router.use((req, res, next) => {
+  if (!req.practiceId) {
+    req.practiceId = process.env.DEFAULT_PRACTICE_ID
+  }
+  next()
+})
+
 // ─── PATIENT: Submit new request ──────────────────────────────────────────────
 router.post('/', validate(schemas.createRequest), async (req, res) => {
   const { request_type, presenting_complaint, triage_responses } = req.body
@@ -90,16 +97,17 @@ router.post('/', validate(schemas.createRequest), async (req, res) => {
     }
 
     // Increment demand counter
+
     await client.query(
       `INSERT INTO demand_log (practice_id, log_date, request_type, request_count, limit_at_time)
        VALUES ($1, CURRENT_DATE, $2, 1, (
-         SELECT CASE WHEN $2::text = 'medical' THEN medical_request_limit
-                     ELSE admin_request_limit END
+         SELECT CASE WHEN $3 = 'medical' THEN medical_request_limit
+                 ELSE admin_request_limit END
          FROM practices WHERE id = $1
        ))
        ON CONFLICT (practice_id, log_date, request_type)
        DO UPDATE SET request_count = demand_log.request_count + 1`,
-      [practiceId, request_type]
+       [practiceId, request_type, request_type]
     )
 
     return newRequest
